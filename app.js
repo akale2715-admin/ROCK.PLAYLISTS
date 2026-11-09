@@ -42,6 +42,8 @@
   const result = document.getElementById("result");
   const trackList = document.getElementById("trackList");
   const copyButton = document.getElementById("copySet");
+  const energyBars = document.getElementById("energyBars");
+  const energyCaption = document.getElementById("energyCaption");
   let selectedVibe = "House party";
   let latestSet = [];
 
@@ -121,6 +123,18 @@
     document.getElementById("resultTitle").textContent = selectedVibe.toUpperCase() + " / ROCK.PLAYLIST";
     document.getElementById("resultMeta").textContent = languageSelect.value.toUpperCase() + " · " + minutes + " MINUTES · " + latestSet.length + " SAMPLE TRACKS";
     trackList.replaceChildren();
+    if (energyBars) {
+      energyBars.replaceChildren();
+      latestSet.forEach((track, index) => {
+        const bar = document.createElement("span");
+        const phase = track.energy >= 5 ? "peak" : track.energy === 4 ? "build" : "warm";
+        bar.className = "energy-bar " + phase;
+        bar.style.height = (18 + track.energy * 13) + "px";
+        bar.title = track.title + " · energy " + track.energy + "/5";
+        energyBars.append(bar);
+      });
+      energyCaption.textContent = latestSet.length + " TRACKS · " + minutes + " MIN · ENERGY FLOW";
+    }
     latestSet.forEach((track, index) => {
       const li = document.createElement("li");
       const name = document.createElement("span");
