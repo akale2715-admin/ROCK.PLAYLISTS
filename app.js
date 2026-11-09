@@ -54,7 +54,7 @@
 
   vibeButtons.forEach(button => {
     button.addEventListener("click", () => {
-      vibeButtons.forEach(item => item.classList.toggle("active", item === button));
+      vibeButtons.forEach(item => { item.classList.toggle("active", item === button); item.setAttribute("aria-pressed", String(item === button)); });
       selectedVibe = button.dataset.vibe || "House party";
     });
   });
@@ -95,7 +95,12 @@
     const language = languageSelect.value;
     const targetCount = Math.max(10, Math.round(minutes / 3.5));
     const tag = vibeTag[selectedVibe] || "house";
-    const pool = tracks.filter(track => languageMatches(track, language));
+    const note = (extraInput?.value || "").toLowerCase();
+    let pool = tracks.filter(track => languageMatches(track, language));
+    if (/no sad|no slow|avoid sad|no heartbreak/.test(note)) pool = pool.filter(track => track.energy >= 4 && !track.tags.includes("romance"));
+    if (/throwback|2000s|90s|old school|nostalgia/.test(note)) pool = pool.filter(track => track.tags.includes("throwback") || track.tags.includes("party"));
+    if (/more punjabi/.test(note)) pool = pool.filter(track => track.language === "Punjabi" || track.language === "Hindi");
+    if (/more english/.test(note)) pool = pool.filter(track => track.language === "English");
     const ranked = pool.map((track, index) => ({ track, score: scoreTrack(track, tag, index) }))
       .sort((a, b) => b.score - a.score)
       .map(item => item.track);
@@ -120,7 +125,8 @@
       return;
     }
     const minutes = Number(durationSelect.value) || 90;
-    document.getElementById("resultTitle").textContent = selectedVibe.toUpperCase() + " / ROCK.PLAYLIST";
+    document.getElementById("resultTitle").textContent = selectedVibe.toUpperCase() + " / THE SOUNDTRACK";
+    document.getElementById("resultSubtitle").textContent = (extraInput?.value.trim() ? "Your note: " + extraInput.value.trim() : "A soundtrack built around your room.") + " · Made for " + minutes + " minutes of good noise.";
     document.getElementById("resultMeta").textContent = languageSelect.value.toUpperCase() + " · " + minutes + " MINUTES · " + latestSet.length + " SAMPLE TRACKS";
     trackList.replaceChildren();
     if (energyBars) {
@@ -138,9 +144,14 @@
     latestSet.forEach((track, index) => {
       const li = document.createElement("li");
       const name = document.createElement("span");
-      name.textContent = track.title + " — " + track.artist;
+      name.className = "track-name";
+      const title = document.createElement("strong");
+      title.textContent = track.title;
+      const artist = document.createElement("em");
+      artist.textContent = track.artist + " · " + track.language;
+      name.append(title, artist);
       const detail = document.createElement("small");
-      detail.textContent = track.language.toUpperCase() + " · " + (track.energy >= 5 ? "PEAK" : track.energy === 4 ? "BUILD" : "WARM-UP");
+      detail.textContent = track.energy >= 5 ? "● PEAK" : track.energy === 4 ? "● BUILD" : "● WARM-UP";
       const link = document.createElement("a");
       link.href = searchUrl(track);
       link.target = "_blank";
