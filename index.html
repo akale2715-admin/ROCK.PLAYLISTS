@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0c0a" />
+  <meta name="description" content="ROCK.PLAYLIST — Your room. Your rules. The perfect party set, built in seconds." />
+  <title>ROCK.PLAYLIST — The aux, handled.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="topbar">
+    <a class="wordmark" href="#" aria-label="ROCK.PLAYLIST home">ROCK<span class="brand-dot">.</span>PLAYLIST</a>
+    <nav>
+      <a href="#how">HOW IT WORKS</a>
+      <a href="#sets">EXPLORE SETS</a>
+    </nav>
+    <a class="top-cta" href="#builder">BUILD YOUR SET <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="live-dot"></span> THE PARTY STARTS HERE <span class="eyebrow-line"></span> EST. 2026</div>
+      <h1>YOUR ROOM.<br><span class="outline">YOUR RULES.</span><br>OUR AUX.</h1>
+      <p class="hero-copy">Tell ROCK the room. We'll bring the tracks.<br>Zero awkward skips. All killer, no filler.</p>
+      <a class="big-cta" href="#builder">LET'S SET THE MOOD <span>↘</span></a>
+      <div class="hero-stamp" aria-hidden="true"><span>GOOD MUSIC</span><b>✳</b><span>GOOD PEOPLE</span></div>
+      <div class="hero-bottom"><span>01 / THE SOUNDTRACK TO YOUR NIGHT</span><span>SCROLL TO TURN IT UP ↓</span></div>
+    </section>
+
+    <section class="ticker" aria-label="Music styles"><div class="ticker-track">
+      <span>HINDI HITS ✳</span><span>PUNJABI HEAT ✳</span><span>THROWBACKS ✳</span><span>DESI BEATS ✳</span><span>ENGLISH BANGERS ✳</span><span>HINDI HITS ✳</span><span>PUNJABI HEAT ✳</span><span>THROWBACKS ✳</span>
+    </div></section>
+
+    <section class="builder section" id="builder">
+      <div class="section-kicker">02 / YOUR NIGHT, YOUR SOUND</div>
+      <div class="builder-heading"><h2>WHAT'S THE<br><em>SCENE?</em></h2><p>Give us the vibe.<br>We'll handle the aux.</p></div>
+      <div class="builder-panel">
+        <div class="panel-top"><span>ROCK.PLAYLIST / SET BUILDER</span><span class="panel-status"><i></i> READY WHEN YOU ARE</span></div>
+        <label class="field-label" for="vibe">01 — PICK YOUR VIBE</label>
+        <div class="choice-grid" id="vibeChoices">
+          <button class="choice active" data-vibe="House party">🏠 <span>HOUSE PARTY</span></button>
+          <button class="choice" data-vibe="Pre-game">🥂 <span>PRE-GAME</span></button>
+          <button class="choice" data-vibe="Wedding scene">💃 <span>WEDDING SCENE</span></button>
+          <button class="choice" data-vibe="Late night">🌙 <span>LATE NIGHT</span></button>
+          <button class="choice" data-vibe="Chill hangout">🛋️ <span>CHILL HANGOUT</span></button>
+          <button class="choice" data-vibe="Full send">⚡ <span>FULL SEND</span></button>
+        </div>
+        <div class="field-row">
+          <div class="field"><label class="field-label" for="language">02 — THE SOUND</label>
+            <select id="language"><option>Hindi + Punjabi</option><option>Hindi only</option><option>Punjabi only</option><option>English + International</option><option>Desi + English mix</option><option>Surprise me</option></select>
+          </div>
+          <div class="field"><label class="field-label" for="duration">03 — HOW LONG?</label>
+            <select id="duration"><option value="60">1 HOUR</option><option value="90" selected>90 MINUTES</option><option value="120">2 HOURS</option><option value="180">3 HOURS</option></select>
+          </div>
+        </div>
+        <div class="field"><label class="field-label" for="extra">04 — ANYTHING ELSE? <span class="optional">OPTIONAL</span></label>
+          <input id="extra" type="text" maxlength="90" placeholder="e.g. no sad songs, more 2000s bangers..." />
+        </div>
+        <button class="generate" id="generate">BUILD MY SET <span>↗</span></button>
+        <p class="fine-print">A demo set is generated locally. Connect a licensed music provider to enable full playback.</p>
+      </div>
+      <div class="result" id="result" hidden aria-live="polite">
+        <div class="result-top"><div><span class="section-kicker">YOUR SET IS READY</span><h3 id="resultTitle">HOUSE PARTY / AFTER DARK</h3></div><button id="copySet" class="copy-btn">COPY TRACKLIST ↗</button></div>
+        <div class="result-meta"><span id="resultMeta">HINDI + PUNJABI · 90 MINUTES</span><span>CURATED BY ROCK.PLAYLIST ✳</span></div>
+        <ol class="track-list" id="trackList"></ol>
+      </div>
+    </section>
+
+    <section class="sets section" id="sets">
+      <div class="section-kicker">03 / PICK YOUR POISON</div>
+      <div class="sets-heading"><h2>SETS THAT<br><em>GET IT.</em></h2><p>For every kind of night.<br>And every kind of main character.</p></div>
+      <div class="set-cards">
+        <article class="set-card card-orange"><div class="card-number">01 / DESI MODE</div><div class="card-symbol">✳</div><div><h3>FULL<br>VOLUME.</h3><p>Punjabi bangers · Hindi hits · No brakes</p></div><a href="#builder" data-preset="Full send">BUILD THIS SET ↗</a></article>
+        <article class="set-card card-lilac"><div class="card-number">02 / THROWBACK</div><div class="card-symbol">◉</div><div><h3>OLD IS<br>GOLD.</h3><p>00s nostalgia · Iconic hooks · Core memories</p></div><a href="#builder" data-preset="House party">BUILD THIS SET ↗</a></article>
+        <article class="set-card card-green"><div class="card-number">03 / AFTER HOURS</div><div class="card-symbol">☾</div><div><h3>ONE MORE<br>SONG.</h3><p>Late-night energy · Smooth transitions</p></div><a href="#builder" data-preset="Late night">BUILD THIS SET ↗</a></article>
+      </div>
+    </section>
+
+    <section class="how section" id="how">
+      <div class="section-kicker">04 / EASY AS ONE TWO THREE</div><h2>LESS TALK.<br><em>MORE DANCE.</em></h2>
+      <div class="steps"><div><b>01</b><h3>SET THE SCENE</h3><p>Tell us what kind of night you're having.</p></div><div><b>02</b><h3>GET YOUR SET</h3><p>ROCK.PLAYLIST lines up tracks that match your energy.</p></div><div><b>03</b><h3>OWN THE ROOM</h3><p>Hit play through your connected music service and let it happen.</p></div></div>
+    </section>
+  </main>
+
+  <footer><a class="wordmark" href="#">ROCK<span class="brand-dot">.</span>PLAYLIST</a><p>GOOD NIGHTS. GREAT TRACKS.</p><span>MADE FOR THE MOMENT · 2026</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
