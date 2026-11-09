@@ -43,12 +43,12 @@
         <div class="panel-top"><span>ROCK.PLAYLIST / SET BUILDER</span><span class="panel-status"><i></i> READY WHEN YOU ARE</span></div>
         <label class="field-label" for="vibe">01 — PICK YOUR VIBE</label>
         <div class="choice-grid" id="vibeChoices">
-          <button class="choice active" data-vibe="House party">🏠 <span>HOUSE PARTY</span></button>
-          <button class="choice" data-vibe="Pre-game">🥂 <span>PRE-GAME</span></button>
-          <button class="choice" data-vibe="Wedding scene">💃 <span>WEDDING SCENE</span></button>
-          <button class="choice" data-vibe="Late night">🌙 <span>LATE NIGHT</span></button>
-          <button class="choice" data-vibe="Chill hangout">🛋️ <span>CHILL HANGOUT</span></button>
-          <button class="choice" data-vibe="Full send">⚡ <span>FULL SEND</span></button>
+          <button class="choice active" data-vibe="House party"><span class="choice-icon">⌂</span><span class="choice-copy"><b>HOUSE PARTY</b><small>Big hooks. Good chaos.</small></span><i>01</i></button>
+          <button class="choice" data-vibe="Pre-game"><span class="choice-icon">✳</span><span class="choice-copy"><b>PRE-GAME</b><small>Ease in, turn up.</small></span><i>02</i></button>
+          <button class="choice" data-vibe="Wedding scene"><span class="choice-icon">✺</span><span class="choice-copy"><b>WEDDING SCENE</b><small>Dance-floor classics.</small></span><i>03</i></button>
+          <button class="choice" data-vibe="Late night"><span class="choice-icon">☾</span><span class="choice-copy"><b>LATE NIGHT</b><small>After-hours mood.</small></span><i>04</i></button>
+          <button class="choice" data-vibe="Chill hangout"><span class="choice-icon">〰</span><span class="choice-copy"><b>CHILL HANGOUT</b><small>Low-key, never boring.</small></span><i>05</i></button>
+          <button class="choice" data-vibe="Full send"><span class="choice-icon">↗</span><span class="choice-copy"><b>FULL SEND</b><small>No brakes. All energy.</small></span><i>06</i></button>
         </div>
         <div class="field-row">
           <div class="field"><label class="field-label" for="language">02 — THE SOUND</label>
@@ -65,9 +65,9 @@
         <p class="fine-print">A demo set is generated locally. Connect a licensed music provider to enable full playback.</p>
       </div>
       <div class="result" id="result" hidden aria-live="polite">
-        <div class="result-top"><div><span class="section-kicker">YOUR SET IS READY</span><h3 id="resultTitle">HOUSE PARTY / AFTER DARK</h3></div><button id="copySet" class="copy-btn">COPY TRACKLIST ↗</button></div>
+        <div class="mix-cover"><div class="mix-cover-orbit"></div><span class="mix-cover-label">ROCK.PLAYLIST / ORIGINAL SESSION</span><div class="mix-cover-bottom"><div><span class="section-kicker">YOUR NIGHT, SCORED.</span><h3 id="resultTitle">HOUSE PARTY / AFTER DARK</h3><p id="resultSubtitle">A soundtrack built around your room.</p></div><div class="mix-cover-mark">R<span>.</span></div></div></div><div class="result-actions"><span class="result-ready"><i></i> YOUR SET IS READY</span><button id="copySet" class="copy-btn">COPY TRACKLIST ↗</button></div>
         <div class="result-meta"><span id="resultMeta">HINDI + PUNJABI · 90 MINUTES</span><span>CURATED BY ROCK.PLAYLIST ✳</span></div>
-        <div class="energy-wrap"><div class="energy-heading"><span>THE ROOM'S ENERGY</span><span id="energyCaption">WARM UP → PEAK → WIND DOWN</span></div><div class="energy-bars" id="energyBars" aria-label="Estimated party energy timeline"></div><div class="energy-legend"><span>● WARM UP</span><span>● BUILD</span><span>● PEAK</span><span>● CLOSE</span></div></div><ol class="track-list" id="trackList"></ol>
+        <div class="energy-wrap"><div class="energy-heading"><span>THE ROOM'S ENERGY</span><span id="energyCaption">WARM UP → PEAK → WIND DOWN</span></div><div class="energy-bars" id="energyBars" aria-label="Estimated party energy timeline"></div><div class="energy-legend"><span>● WARM UP</span><span>● BUILD</span><span>● PEAK</span><span>● CLOSE</span></div></div><div class="track-list-head"><span>THE RUN OF SHOW</span><span>TRACK / ARTIST</span><span>ENERGY</span><span>OPEN</span></div><ol class="track-list" id="trackList"></ol>
       </div>
     </section>
 
